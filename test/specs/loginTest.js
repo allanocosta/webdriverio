@@ -12,6 +12,8 @@ describe('My Account test', () => {
     });
     
     it('Should login with valid email and password', async () => {
+        await browser.url('https://loja.electrolux.com.br/login');
+
         const myAccount_modal_vtexAuthSelector = await $("div#vtexIdUI-auth-selector");
         const myAccount_btn_loginWithEmailAndPassword = await $("button#loginWithUserAndPasswordBtn");
         const myAccount_modal_classicLogin = await $("form#vtexIdUI-form-classic-login");
