@@ -18,6 +18,7 @@
     "@wdio/spec-reporter": "^7.7.3",
     "assert": "^2.0.0",
     "chromedriver": "^91.0.1",
+    "dotenv": "^10.0.0",
     "wdio-chromedriver-service": "^7.1.0"
   }
 }
