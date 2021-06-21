@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "parallel-bs": "wdio run ./conf/parallel-bs.conf.js"
   },
   "keywords": [],
   "author": "",

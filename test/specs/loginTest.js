@@ -15,6 +15,10 @@ describe('My Account test', () => {
         await elluxBRHomePage.closeNewsletter();
         await expect(browser).toHaveTitle('Ofertas Eletro: geladeira, aspirador, fogão e mais | Electrolux');
     });
+
+    after('Should delete all sessions', async () =>{
+        await elluxBRHomePage.close();
+    });
     
     it('Should login with valid email and password', async () => {
         await elluxBRLoginPage.open();
@@ -22,20 +26,19 @@ describe('My Account test', () => {
         await elluxBRHomePage.validateUserLogged('logged');
     });
     
-    /* it('Should login with valid email and invalid password', async () => {
-        
-        
-        await browser.url('https://loja.electrolux.com.br/login');
-        
-        await myAccount_modal_vtexAuthSelector.waitForDisplayed({timeout: (20 * 1000)});
-        await myAccount_btn_loginWithEmailAndPassword.click();
-        await myAccount_modal_classicLogin.waitForDisplayed({timeout: (5 * 1000)});
-        await myAccount_input_email.setValue(valid_usermane);
-        await myAccount_input_password.setValue(valid_password);
-        await myAccount_btn_classicLogin.click();
-        // await browser.getCookies('VtexIdclientAutCookie_electrolux');
-        await expect(homePage_btn_userModal).toBeDisplayed();
-    }); */
+    it('Should login with valid email and invalid password', async () => {
+        await elluxBRLoginPage.open();
+        await elluxBRLoginPage.loginWithEmailAndPassword(valid_usermane, invalid_password);
+        await elluxBRLoginPage.validateMsgLogin('Usuário e/ou senha errada');
+        await elluxBRHomePage.validateUserLogged('not logged');
+    });
+    
+    it('Should login with invalid email and valid password', async () => {
+        await elluxBRLoginPage.open();
+        await elluxBRLoginPage.loginWithEmailAndPassword(invalid_usermane, valid_password);
+        await elluxBRLoginPage.validateMsgLogin('Usuário e/ou senha errada');
+        await elluxBRHomePage.validateUserLogged('not logged');
+    });
     
     /* it('Should access the Who We Are page', async () => {
         const header_btn_aboutElectrolux = await $("div#btn-sobre button[class*='js-toggle']");
