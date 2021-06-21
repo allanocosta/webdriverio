@@ -4,7 +4,7 @@ const assert = require('assert');
 const elluxBRLoginPage = require('../pageobjects/ElluxBRLoginPage');
 const elluxBRHomePage = require('../pageobjects/ElluxBRHomePage');
 
-describe('My Account test', () => {
+describe('Login test', () => {
     const valid_usermane = process.env.ELLUXBR_USERNAME;
     const valid_password = process.env.ELLUXBR_PASSWORD;
     const invalid_usermane = 'invalid@test.com';

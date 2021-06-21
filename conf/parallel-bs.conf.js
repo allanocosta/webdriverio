@@ -49,34 +49,52 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        browserName: "chrome",
-        browser_version: "latest",
-        os: "Windows",
-        os_version: "10"
+        os : "Windows",
+        osVersion : "10",
+        resolution : "1920x1080",
+        projectName : "Login page",
+        sessionName : "Login test",
+        local : "false",
+        seleniumVersion : "3.14.0",
+        browserName : "Chrome",
+        browserVersion : "latest",
     },{
-        device: "iPhone 12 Pro",
-        browserName: "iPhone",
-        os_version: "14"
+        os : "Windows",
+        osVersion : "10",
+        resolution : "1920x1080",
+        projectName : "Login page",
+        sessionName : "Login test",
+        local : "false",
+        seleniumVersion : "3.14.0",
+        browserName : "Firefox",
+        browserVersion : "latest",
     },{
-        browserName: "safari",
-        browser_version: "latest",
-        os: "OS X",
-        os_version: "Big Sur"
+        osVersion : "14",
+        deviceName : "iPhone 12 Pro Max",
+        realMobile : "true",
+        projectName : "Login page",
+        sessionName : "Login test",
+        local : "false",
+        browserName : "iPhone",
     },{
-        device: "Samsung Galaxy S20 Ultra",
-        browserName: "Android",
-        os_version: "10.0",
+        osVersion : "11.0",
+        deviceName : "Samsung Galaxy S21 Ultra",
+        realMobile : "true",
+        projectName : "Login page",
+        sessionName : "Login test",
+        local : "false",
+        browserName : "Android",
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 7,
+        // maxInstances: 5,
         //
         /* browserName: 'chrome',
         acceptInsecureCerts: true */
@@ -231,75 +249,76 @@ exports.config = {
     // },
     /**
     * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
-    * beforeEach in Mocha)
-    */
-    // beforeHook: function (test, context) {
-    // },
-    /**
-    * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
-    * afterEach in Mocha)
-    */
-    // afterHook: function (test, context, { error, result, duration, passed, retries }) {
-    // },
-    /**
-    * Function to be executed after a test (in Mocha/Jasmine).
-    */
-    afterTest: function(test, context, { error, result, duration, passed, retries }) {
-        if(passed) {
-            browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
-        } else {
-            browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
+        * beforeEach in Mocha)
+        */
+        // beforeHook: function (test, context) {
+        // },
+        /**
+        * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
+            * afterEach in Mocha)
+            */
+            // afterHook: function (test, context, { error, result, duration, passed, retries }) {
+            // },
+            /**
+            * Function to be executed after a test (in Mocha/Jasmine).
+            */
+            afterTest: function(test, context, { error, result, duration, passed, retries }) {
+                if(passed) {
+                    browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
+                } else {
+                    browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
+                }
+            },
+            
+            
+            /**
+            * Hook that gets executed after the suite has ended
+            * @param {Object} suite suite details
+            */
+            // afterSuite: function (suite) {
+            // },
+            /**
+            * Runs after a WebdriverIO command gets executed
+            * @param {String} commandName hook command name
+            * @param {Array} args arguments that command would receive
+            * @param {Number} result 0 - command success, 1 - command error
+            * @param {Object} error error object if any
+            */
+            // afterCommand: function (commandName, args, result, error) {
+            // },
+            /**
+            * Gets executed after all tests are done. You still have access to all global variables from
+            * the test.
+            * @param {Number} result 0 - test pass, 1 - test fail
+            * @param {Array.<Object>} capabilities list of capabilities details
+            * @param {Array.<String>} specs List of spec file paths that ran
+            */
+            // after: function (result, capabilities, specs) {
+            // },
+            /**
+            * Gets executed right after terminating the webdriver session.
+            * @param {Object} config wdio configuration object
+            * @param {Array.<Object>} capabilities list of capabilities details
+            * @param {Array.<String>} specs List of spec file paths that ran
+            */
+            // afterSession: function (config, capabilities, specs) {
+            // },
+            /**
+            * Gets executed after all workers got shut down and the process is about to exit. An error
+            * thrown in the onComplete hook will result in the test run failing.
+            * @param {Object} exitCode 0 - success, 1 - fail
+            * @param {Object} config wdio configuration object
+            * @param {Array.<Object>} capabilities list of capabilities details
+            * @param {<Object>} results object containing test results
+            */
+            // onComplete: function(exitCode, config, capabilities, results) {
+            // },
+            /**
+            * Gets executed when a refresh happens.
+            * @param {String} oldSessionId session ID of the old session
+            * @param {String} newSessionId session ID of the new session
+            */
+            //onReload: function(oldSessionId, newSessionId) {
+            //}
         }
-    },
-    
-    
-    /**
-    * Hook that gets executed after the suite has ended
-    * @param {Object} suite suite details
-    */
-    // afterSuite: function (suite) {
-    // },
-    /**
-    * Runs after a WebdriverIO command gets executed
-    * @param {String} commandName hook command name
-    * @param {Array} args arguments that command would receive
-    * @param {Number} result 0 - command success, 1 - command error
-    * @param {Object} error error object if any
-    */
-    // afterCommand: function (commandName, args, result, error) {
-    // },
-    /**
-    * Gets executed after all tests are done. You still have access to all global variables from
-    * the test.
-    * @param {Number} result 0 - test pass, 1 - test fail
-    * @param {Array.<Object>} capabilities list of capabilities details
-    * @param {Array.<String>} specs List of spec file paths that ran
-    */
-    // after: function (result, capabilities, specs) {
-    // },
-    /**
-    * Gets executed right after terminating the webdriver session.
-    * @param {Object} config wdio configuration object
-    * @param {Array.<Object>} capabilities list of capabilities details
-    * @param {Array.<String>} specs List of spec file paths that ran
-    */
-    // afterSession: function (config, capabilities, specs) {
-    // },
-    /**
-    * Gets executed after all workers got shut down and the process is about to exit. An error
-    * thrown in the onComplete hook will result in the test run failing.
-    * @param {Object} exitCode 0 - success, 1 - fail
-    * @param {Object} config wdio configuration object
-    * @param {Array.<Object>} capabilities list of capabilities details
-    * @param {<Object>} results object containing test results
-    */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
-    /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
-    //onReload: function(oldSessionId, newSessionId) {
-    //}
-}
+        
