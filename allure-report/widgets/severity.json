@@ -1,0 +1,31 @@
+[ {
+  "uid" : "aadff33d1d6e0406",
+  "name" : "Should login with valid email and password",
+  "time" : {
+    "start" : 1624397754485,
+    "stop" : 1624397769907,
+    "duration" : 15422
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "eb23ec21a8de97ee",
+  "name" : "Should login with valid email and invalid password",
+  "time" : {
+    "start" : 1624397769907,
+    "stop" : 1624397776146,
+    "duration" : 6239
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "164f17814179f93d",
+  "name" : "Should login with invalid email and valid password",
+  "time" : {
+    "start" : 1624397776147,
+    "stop" : 1624397782335,
+    "duration" : 6188
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jun 22 18:35:54 BRT 2021","Tue Jun 22 18:36:09 BRT 2021","15422","","Login test","","Login test","Should login with valid email and password","Should login with valid email and password",""
+"passed","Tue Jun 22 18:36:16 BRT 2021","Tue Jun 22 18:36:22 BRT 2021","6188","","Login test","","Login test","Should login with invalid email and valid password","Should login with invalid email and valid password",""
+"passed","Tue Jun 22 18:36:09 BRT 2021","Tue Jun 22 18:36:16 BRT 2021","6239","","Login test","","Login test","Should login with valid email and invalid password","Should login with valid email and invalid password",""

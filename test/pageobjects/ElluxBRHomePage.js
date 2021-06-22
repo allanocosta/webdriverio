@@ -7,10 +7,12 @@ class ElluxBRHomePage extends ElluxBRPage {
     get homePage_btn_userModal () {return $("header[class*='header js-ready'] div.user__actions > button")};
     
     async closeNewsletter() {
-        await (await this.btn_closeNewsletter).click();
-        await (await expect(this.modal_newsletter)).not.toBeDisplayed();
+        if(await (await this.modal_newsletter).isDisplayed() === true) {
+            await (await this.btn_closeNewsletter).click();
+            await (await expect(this.modal_newsletter)).not.toBeDisplayed();
+        };
     };
-
+    
     async validateUserLogged(status) {
         switch (status){
             case 'logged':
@@ -24,6 +26,10 @@ class ElluxBRHomePage extends ElluxBRPage {
     
     open () {
         return super.urlBase('');
+    };
+    
+    close () {
+        return super.closeWindow();
     };
 };
 

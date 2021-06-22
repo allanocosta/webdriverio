@@ -3,17 +3,17 @@ require('dotenv').config();
 const elluxBRLoginPage = require('../pageobjects/ElluxBRLoginPage');
 const elluxBRHomePage = require('../pageobjects/ElluxBRHomePage');
 
+before('Should access home page and validate Home Page title', async () => {
+    await elluxBRHomePage.open();
+    await elluxBRHomePage.closeNewsletter();
+    await expect(browser).toHaveTitle('Ofertas Eletro: geladeira, aspirador, fogão e mais | Electrolux');
+});
+
 describe('Login test', () => {
     const valid_usermane = process.env.ELLUXBR_USERNAME;
     const valid_password = process.env.ELLUXBR_PASSWORD;
     const invalid_usermane = 'invalid@test.com';
     const invalid_password = 'invalidP@ssw0rd';
-    
-    before('Should access home page and validate Home Page title', async () => {
-        await elluxBRHomePage.open();
-        await elluxBRHomePage.closeNewsletter();
-        await expect(browser).toHaveTitle('Ofertas Eletro: geladeira, aspirador, fogão e mais | Electrolux');
-    });
     
     it('Should login with valid email and password', async () => {
         await elluxBRLoginPage.open();

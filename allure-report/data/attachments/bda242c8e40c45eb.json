@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "header[class*='header js-ready'] div.user__actions > button"
+}

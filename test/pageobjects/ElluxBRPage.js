@@ -6,4 +6,8 @@ module.exports = class ElluxBRPage {
     urlBase (path) {
         return browser.url(`https://loja.electrolux.com.br/${path}`);
     };
+
+    closeWindow () {
+        return browser.closeWindow();
+    };
 };

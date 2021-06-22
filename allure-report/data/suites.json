@@ -1,0 +1,48 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Login test",
+    "children" : [ {
+      "name" : "Should login with valid email and password",
+      "uid" : "aadff33d1d6e0406",
+      "parentUid" : "4357f0e2321a717db98ac76bdb2079fa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624397754485,
+        "stop" : 1624397769907,
+        "duration" : 15422
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-91.0.4472.114" ]
+    }, {
+      "name" : "Should login with valid email and invalid password",
+      "uid" : "eb23ec21a8de97ee",
+      "parentUid" : "4357f0e2321a717db98ac76bdb2079fa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624397769907,
+        "stop" : 1624397776146,
+        "duration" : 6239
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-91.0.4472.114" ]
+    }, {
+      "name" : "Should login with invalid email and valid password",
+      "uid" : "164f17814179f93d",
+      "parentUid" : "4357f0e2321a717db98ac76bdb2079fa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624397776147,
+        "stop" : 1624397782335,
+        "duration" : 6188
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-91.0.4472.114" ]
+    } ],
+    "uid" : "4357f0e2321a717db98ac76bdb2079fa"
+  } ]
+}
