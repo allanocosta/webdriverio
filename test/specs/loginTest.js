@@ -1,5 +1,4 @@
 require('dotenv').config();
-const assert = require('assert');
 
 const elluxBRLoginPage = require('../pageobjects/ElluxBRLoginPage');
 const elluxBRHomePage = require('../pageobjects/ElluxBRHomePage');
@@ -14,10 +13,6 @@ describe('Login test', () => {
         await elluxBRHomePage.open();
         await elluxBRHomePage.closeNewsletter();
         await expect(browser).toHaveTitle('Ofertas Eletro: geladeira, aspirador, fogão e mais | Electrolux');
-    });
-
-    after('Should delete all sessions', async () =>{
-        await elluxBRHomePage.close();
     });
     
     it('Should login with valid email and password', async () => {

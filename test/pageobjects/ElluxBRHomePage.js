@@ -25,10 +25,6 @@ class ElluxBRHomePage extends ElluxBRPage {
     open () {
         return super.urlBase('');
     };
-
-    close () {
-        return super.closeBrowser();
-    };
 };
 
 module.exports = new ElluxBRHomePage();

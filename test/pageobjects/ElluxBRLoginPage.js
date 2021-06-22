@@ -25,10 +25,6 @@ class ElluxBRLoginPage extends ElluxBRPage {
     open () {
         return super.urlBase('login');
     };
-
-    close () {
-        return super.closeBrowser();
-    };
 };
 
 module.exports = new ElluxBRLoginPage();
