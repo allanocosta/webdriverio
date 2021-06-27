@@ -46,5 +46,3 @@ describe('Login test', () => {
         await browser.toHaveTitle('Transformar a vida para melhor');
     }); */
 });
-
-
